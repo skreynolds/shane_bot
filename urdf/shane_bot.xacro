@@ -32,44 +32,79 @@
 			/>
 		</inertial>
 
+		<!-- Main Chassis -->
 		<collision name="chassis_collision">
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
-				<box size="0.4 0.2 0.1"/>
+				<box size="0.2 0.2 0.1"/>
 			</geometry>
 		</collision>
 
 		<visual name="chassis_visual">
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
-				<box size="0.4 0.2 0.1"/>
+				<box size="0.2 0.2 0.1"/>
 			</geometry>
 			<material name="blue"/>
 		</visual>
 
+		<!-- Front portion of chassis -->
+		<collision name="front_chassis_collision">
+			<origin xyz="0.2 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.2 0.2 0.1"/>
+			</geometry>
+		</collision>
+
+		<visual name="front_chassis_visual">
+			<origin xyz="0.2 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.2 0.2 0.1"/>
+			</geometry>
+			<material name="blue"/>
+		</visual>
+
+		<!-- Top portion of chassis -->
+		<collision name="top_chassis_collision">
+			<origin xyz="0 0 0.1" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.2 0.2 0.1"/>
+			</geometry>
+		</collision>
+
+		<visual name="top_chassis_visual">
+			<origin xyz="0 0 0.1" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.2 0.2 0.1"/>
+			</geometry>
+			<material name="blue"/>
+		</visual>
+
+		<!-- Caster at the back of robot -->
 		<collision name='back_caster_collision'>
-			<origin xyz="-0.15 0 -0.05" rpy="0 0 0"/>
+			<origin xyz="-0.05 0 -0.05" rpy="0 0 0"/>
 			<geometry>
 				<sphere radius="0.0499"/>
 			</geometry>
 		</collision>
 
 		<visual name="back_caster_visual">
-			<origin xyz="-0.15 0 -0.05" rpy="0 0 0"/>
+			<origin xyz="-0.05 0 -0.05" rpy="0 0 0"/>
 			<geometry>
 				<sphere radius="0.05"/>
 			</geometry>
 		</visual>
 
+		<!-- Caster at front of robot -->
 		<collision name='front_caster_visual'>
-			<origin xyz="0.15 0 -0.05" rpy="0 0 0"/>
+			<origin xyz="0.25 0 -0.05" rpy="0 0 0"/>
 			<geometry>
 				<sphere radius="0.0499"/>
 			</geometry>
 		</collision>
 
 		<visual name="front_caster_visual">
-			<origin xyz="0.15 0 -0.05" rpy="0 0 0"/>
+			<origin xyz="0.25 0 -0.05" rpy="0 0 0"/>
 			<geometry>
 				<sphere radius="0.05"/>
 			</geometry>
@@ -182,7 +217,7 @@
 
 	<!-- Joint connecting the camera to the chassis -->
 	<joint type="fixed" name="camera_joint">
-		<origin xyz="0.2 0 0" rpy="0 0 0"/>
+		<origin xyz="0.3 0 0" rpy="0 0 0"/>
 		<parent link="chassis"/>
 		<child link="camera"/>
 	</joint>
@@ -216,7 +251,7 @@
 
 	<!-- Joint connecting the  -->
 	<joint type="fixed" name="hokuyo_joint">
-		<origin xyz="0.15 0 0.1" rpy="0 0 0"/>
+		<origin xyz="0 0 0.2" rpy="0 0 0"/>
 		<parent link="chassis"/>
 		<child link="hokuyo"/>
 	</joint>
